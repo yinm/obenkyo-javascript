@@ -1,25 +1,15 @@
-// 与えられた文字列をエスケープ処理
-function escapeHtml(str) {
-  if (!str) { return ''; }
-  str = str.replace(/&/g, '&amp;');
-  str = str.replace(/</g, '&lt;');
-  str = str.replace(/>/g, '&gt;');
-  str = str.replace(/"/g, '&quot;');
-  str = str.replace(/'/g, '&#39;');
-  return str;
-}
+function closure(init) {
+  var counter = init;
 
-// 分解されたtemplatesとvaluesを順番に連結 (valuesはescapeHtml関数でエスケープ)
-function e(templates, ...values) {
-  let result = '';
-  for (let i = 0, len = templates.length; i < len; i++) {
-    result += templates[i] + escapeHtml(values[i]);
+  return function() {
+    return ++counter;
   }
-
-  return result;
 }
 
-// テンプレート文字列をエスケープ処理
-let name = '<"Mario" & \'Luigi\'>';
-console.log(e`こんにちは、${name}さん！`);
-// こんにちは、&lt;&quot;Mario&quot; &amp; &#39;Luigi&#39;&gt;さん！
+var myClosure1 = closure(1);
+var myClosure2 = closure(100);
+
+console.log(myClosure1());  // 2
+console.log(myClosure2());  // 101
+console.log(myClosure1());  // 3
+console.log(myClosure2());  // 102
