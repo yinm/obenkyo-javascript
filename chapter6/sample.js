@@ -1,12 +1,10 @@
 window.addEventListener('DOMContentLoaded', function() {
   var select = document.getElementById('food');
-  var child = select.lastChild;
+  var elementChild = select.firstElementChild;
 
-  while(child) {
-    if (child.nodeType === 1) {
-      console.log(child.value);
-    }
+  while (elementChild) {
+    console.log(elementChild.value);
 
-    child = child.previousSibling;
+    elementChild = elementChild.nextElementSibling;
   }
 });
