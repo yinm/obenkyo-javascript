@@ -1,5 +1,7 @@
 window.addEventListener('DOMContentLoaded', function() {
-  var current = new Date();
-  var result = document.getElementById('result');
-  result.textContent = current.toLocaleString();
+ var list = document.getElementsByTagName('a');
+
+ for (var i = 0, length = list.length; i < length; i++) {
+   console.log(list.item(i).href);
+ }
 });
