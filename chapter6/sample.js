@@ -1,12 +1,12 @@
 window.addEventListener('DOMContentLoaded', function() {
   var select = document.getElementById('food');
-  var options = select.childNodes;
+  var child = select.firstChild;
 
-  for (var i = 0, length = options.length; i < length; i++) {
-    var option = options.item(i);
-
-    if (option.nodeType === 1) {
-      console.log(option.value);
+  while(child) {
+    if (child.nodeType === 1) {
+      console.log(child.value);
     }
+
+    child = child.nextSibling;
   }
 });
