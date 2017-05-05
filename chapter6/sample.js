@@ -1,3 +1,5 @@
-function button_click() {
-  window.alert('ボタンがクリックされました');
-}
+window.onload = function() {
+  document.getElementById('button').onclick = function() {
+    window.alert('ボタンがクリックされました');
+  };
+};
