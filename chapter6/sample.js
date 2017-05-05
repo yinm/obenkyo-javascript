@@ -3,6 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var name = document.getElementById('name');
     var result = document.getElementById('result');
 
-    result.innerHTML = 'こんにちは、' + name.value + 'さん！';
+    result.textContent = 'こんにちは、' + name.value + 'さん！';
   }, false);
 }, false);
