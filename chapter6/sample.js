@@ -1,5 +1,5 @@
-window.onload = function() {
-  document.getElementById('button').onclick = function() {
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('button').addEventListener('click', function() {
     window.alert('ボタンがクリックされました');
-  };
-};
+  }, false);
+}, false);
