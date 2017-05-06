@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('result').textContent = reader.result;
     }, true);
 
+    reader.addEventListener('error', function() {
+      console.log(reader.error.message);
+    }, true);
+
     reader.readAsText(input, 'UTF-8');
+    reader.abort();
   }, true);
 });
