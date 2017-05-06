@@ -1,13 +1,12 @@
-window.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('file').addEventListener('change', function() {
-    var inputs = document.getElementById('file').files;
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('file').addEventListener('change', function(e) {
+    var input = document.getElementById('file').files[0];
+    var reader = new FileReader();
 
-    for (var i = 0, length = inputs.length; i < length; i++) {
-      var input = inputs[i];
-      console.log('ファイル名：' + input.name);
-      console.log('種類：' + input.type);
-      console.log('サイズ：' + input.size / 1024 + 'KB');
-      console.log('最終更新日：' + input.lastModifiedDate);
-    }
+    reader.addEventListener('load', function() {
+      document.getElementById('result').textContent = reader.result;
+    }, true);
+
+    reader.readAsText(input, 'UTF-8');
   }, true);
 });
