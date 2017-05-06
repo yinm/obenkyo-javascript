@@ -1,15 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var setCheckValue = function(name, value) {
-    var elements = document.getElementsByName(name);
+  var getSelectValue = function(name) {
+    var result = [];
+    var options = document.getElementById(name).options;
 
-    for (var i = 0, length = elements.length; i < length; i++) {
-      var element = elements.item(i);
+    for (var i = 0, length = options.length; i < length; i++) {
+      var option = options.item(i);
 
-      if (value.indexOf(element.value) > -1) {
-        element.checked = true;
+      if (option.selected) {
+        result.push(option.value);
       }
     }
+    return result;
   };
 
-  setCheckValue('food', ['餃子', '焼肉']);
+  document.getElementById('button').addEventListener('click', function() {
+    window.alert(getSelectValue('food'));
+  }, false);
 }, false);
