@@ -1,14 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('button').addEventListener('click', function() {
-    var result = [];
-    var foods = document.getElementsByName('food');
+    var toggle = document.getElementById('toggle');
 
-    for (var i = 0, length = foods.length; i < length; i++) {
-      var food = foods.item(i);
-      if (food.checked) {
-        result.push(food.value);
-      }
+    if (toggle.checked) {
+      console.log(toggle.value);
+    } else {
+      console.log('チェックされていません');
     }
-    window.alert(result.toString());
   }, false);
 }, false);
