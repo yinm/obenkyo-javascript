@@ -8,11 +8,19 @@
 <body>
 
 <form>
-  <label for="file">ファイル：</label>
-  <input type="file" id="file" name="file">
+  <div>
+    <label for="name">サイト名：</label>
+    <input type="text" id="name" name="name" size="30">
+  </div>
+  <div>
+    <label for="url">URL：</label>
+    <input type="url" id="url" name="url" size="50">
+  </div>
+  <div>
+    <input type="button" id="button" value="追加">
+  </div>
 </form>
-<hr>
-<img id="result">
+<div id="list"></div>
 
 </body>
 </html>

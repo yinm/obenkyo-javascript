@@ -1,12 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('file').addEventListener('change', function(e) {
-    var input = document.getElementById('file').files[0];
-    var reader = new FileReader();
+  document.getElementById('button').addEventListener('click', function() {
+    var name = document.getElementById('name');
+    var url = document.getElementById('url');
+    var list = document.getElementById('list');
 
-    reader.addEventListener('load', function(e) {
-      document.getElementById('result').src = reader.result;
-    }, true);
+    var anchor = document.createElement('a');
+    anchor.href = url.value;
 
-    reader.readAsDataURL(input);
-  }, true);
-});
+    var text = document.createTextNode(name.value);
+    anchor.appendChild(text);
+
+    var br = document.createElement('br');
+
+    list.appendChild(anchor);
+    list.appendChild(br);
+  }, false);
+}, false);
