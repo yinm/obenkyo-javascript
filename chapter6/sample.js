@@ -1,21 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('button').addEventListener('click', function() {
-    var name = document.getElementById('name');
-    var url = document.getElementById('url');
-    var list = document.getElementById('list');
+  var books = [
+    {title: '独習PHP', price: 3200},
+    {title: 'Java poke', price: 2680},
+    {title: 'create app', price: 2000}
+  ];
 
-    var anchor = document.createElement('a');
+  var list = document.getElementById('list');
 
-    var href = document.createAttribute('href');
-    href.value = url.value;
-    anchor.setAttributeNode(href);
+  for (var i = 0, length = books.length; i < length; i++) {
+    var book = books[i];
+    var li = document.createElement('li');
+    var text = document.createTextNode(book.title + ' : ' + book.price + '円');
 
-    var text = document.createTextNode(name.value);
-    anchor.appendChild(text);
-
-    var br = document.createElement('br');
-
-    list.appendChild(anchor);
-    list.appendChild(br);
-  }, false);
+    li.appendChild(text);
+    list.appendChild(li);
+  }
 }, false);
