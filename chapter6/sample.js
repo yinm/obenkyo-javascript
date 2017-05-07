@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var list = document.getElementById('list');
 
     var anchor = document.createElement('a');
-    anchor.href = url.value;
+
+    var href = document.createAttribute('href');
+    href.value = url.value;
+    anchor.setAttributeNode(href);
 
     var text = document.createTextNode(name.value);
     anchor.appendChild(text);
