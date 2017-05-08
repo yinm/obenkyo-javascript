@@ -1,20 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var books = [
-    {title: '独習PHP', price: 3200},
-    {title: 'Java Pocket', price: 2680},
-    {title: 'create app', price: 2000}
-  ];
-
   var list = document.getElementById('list');
-  var fragment = document.createDocumentFragment();
+  var picture = document.getElementById('picture');
+  var del = document.getElementById('delete');
 
-  for (var i = 0, length = books.length; i < length; i++) {
-    var book = books[i];
-    var li = document.createElement('li');
-    var text = document.createTextNode(book.title + ' : ' + book.price + '円');
-    li.appendChild(text);
-    fragment.appendChild(li);
-  }
+  list.addEventListener('click', function(e) {
+    var isbn = e.target.getAttribute('data-isbn');
 
-  document.getElementById('list').appendChild(fragment);
+    if (isbn) {
+      var img = document.createElement('img');
+      img.src = 'http://www.wings.msn.to/books/' + isbn + '/' + isbn + '.jpg';
+      img.alt = e.innerHTML;
+      img.height = 150;
+      img.width = 108;
+
+      if (picture.getElementsByTagName('img').length > 0) {
+        picture.replaceChild(img, picture.lastChild);
+      } else {
+        del.disabled = false;
+        picture.appendChild(img);
+      }
+    }
+  }, false);
+
+  del.addEventListener('click', function() {
+    picture.removeChild(picture.lastChild);
+    del.disabled = true;
+  }, false);
 }, false);
