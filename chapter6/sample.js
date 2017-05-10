@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var element = document.getElementById('elem');
 
   element.addEventListener('mouseover', function() {
-    this.style.backgroundColor = 'Yellow';
+    this.className = 'highlight';
   }, false);
 
   element.addEventListener('mouseout', function() {
-    this.style.backgroundColor = '';
+    this.className = '';
   }, false);
 }, false);
