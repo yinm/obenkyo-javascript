@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var second = document.getElementById('second');
-  var li = document.getElementsByTagName('li');
+  var element = document.getElementById('elem');
 
-  for (var i = 0, length = li.length; i < length; i++) {
-    var item = li.item(i);
-    var new_li = document.createElement('li');
-    var new_text = document.createTextNode(item.textContent);
-    new_li.appendChild(new_text);
-    second.appendChild(new_li);
-  }
+  element.addEventListener('mouseover', function() {
+    this.style.backgroundColor = 'Yellow';
+  }, false);
+
+  element.addEventListener('mouseout', function() {
+    this.style.backgroundColor = '';
+  }, false);
 }, false);
