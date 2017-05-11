@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var element = document.getElementById('elem');
+  var button = document.getElementById('button');
 
-  element.addEventListener('click', function() {
-    this.classList.toggle('highlight');
-  }, false);
+  button.onclick = function() {
+    window.alert('hello world');
+  };
+
+  button.onclick = null;
 }, false);
