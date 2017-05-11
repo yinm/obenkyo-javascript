@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var button = document.getElementById('button');
-  var listener = function() {
-    window.alert('hello world');
-  };
+  document.getElementById('button').addEventListener('click', function(e) {
+    var target = e.target;
+    console.log('発生元:' + target.nodeName + '/' + target.id);
 
-  button.addEventListener('click', listener, false);
-
-  button.removeEventListener('click', listener, false);
+    console.log('種類:' + e.type);
+  }, false);
 }, false);
