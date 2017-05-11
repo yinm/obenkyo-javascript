@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
   var button = document.getElementById('button');
-
-  button.onclick = function() {
+  var listener = function() {
     window.alert('hello world');
   };
 
-  button.onclick = null;
+  button.addEventListener('click', listener, false);
+
+  button.removeEventListener('click', listener, false);
 }, false);
