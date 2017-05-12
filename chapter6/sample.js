@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('inner').addEventListener('click', function() {
+  document.getElementById('inner').addEventListener('click', function(e) {
     window.alert('#innerリスナーが発生しました');
-  }, true);
+    // 親へのバブリングをキャンセル
+    e.stopPropagation();
+  }, false);
 
-  document.getElementById('inner').addEventListener('click', function() {
+  document.getElementById('inner').addEventListener('click', function(e) {
     window.alert('#innerリスナー2が発生しました');
-  }, true);
+  }, false);
 
-  document.getElementById('outer').addEventListener('click', function() {
+  document.getElementById('outer').addEventListener('click', function(e) {
     window.alert('#outerリスナーが発生しました');
-  }, true);
+  }, false);
 }, false);
