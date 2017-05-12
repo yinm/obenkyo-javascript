@@ -1,14 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('inner').addEventListener('click', function(e) {
-    window.alert('#innerリスナーが発生しました');
-    e.preventDefault();
-  }, false);
+  var data = {
+    title: 'Java Pocket',
+    price: 2680,
+    show: function() {
+      console.log(this.title + '/' + this.price + '円');
+    }
+  };
 
-  document.getElementById('inner').addEventListener('click', function(e) {
-    window.alert('#innerリスナー2が発生しました');
-  }, false);
-
-  document.getElementById('outer').addEventListener('click', function(e) {
-    window.alert('#outerリスナーが発生しました');
-  }, false);
+  document.getElementById('button').addEventListener('click', data.show.bind(data), false);
 }, false);
