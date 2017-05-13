@@ -1,11 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var data = {
-    title: 'Java Pocket',
-    price: 2680,
-    handleEvent: function() {
-      console.log(this.title + '/' + this.price + '円');
-    }
+  var Counter = function(element) {
+    this.count = 0;
+    this.element = element;
+    element.addEventListener('click', ()=> {
+      this.count++;
+      this.show();
+    }, false);
   };
 
-  document.getElementById('button').addEventListener('click', data, false);
+  Counter.prototype.show = function() {
+    console.log(this.element.id + 'は' + this.count + '回クリックされました。');
+  };
+
+  var c = new Counter(document.getElementById('button'));
 }, false);
