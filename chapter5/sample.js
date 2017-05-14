@@ -1,11 +1,11 @@
-var Member = function(firstName, lastName) {
-  this.firstName = firstName;
-  this.lastName  = lastName;
-};
+var data = 'Global data';
+var obj1 = {data: 'obj1 data'};
+var obj2 = {data: 'obj2 data'};
 
-var mem = new Member('太郎', '田中');
-mem.getName = function() {
-  return this.lastName + ' ' + this.firstName;
-};
+function hoge() {
+  console.log(this.data);
+}
 
-console.log(mem.getName());
+hoge.call(null);
+hoge.call(obj1);
+hoge.call(obj2);
