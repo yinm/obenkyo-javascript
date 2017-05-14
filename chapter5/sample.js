@@ -1,6 +1,12 @@
-function hoge() {
-  let args = Array.from(arguments);
-  console.log(args.join('/'));
-}
+var Member = function(firstName, lastName) {
+  if (!(this instanceof Member)) {
+    return new Member(firstName, lastName);
+  }
+  this.firstName = firstName;
+  this.lastName  = lastName;
+};
 
-hoge('Angular', 'React', 'Backbone');
+var m = Member('二郎', '鈴木');
+console.log(m);
+// console.log(firstName); // Reference Errorになるため、コメントアウト
+console.log(m.firstName);
