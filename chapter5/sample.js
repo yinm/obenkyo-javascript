@@ -1,10 +1,11 @@
 var Member = function(firstName, lastName) {
   this.firstName = firstName;
   this.lastName  = lastName;
-  this.getName   = function() {
-    return this.lastName + ' ' + this.firstName;
-  };
 };
 
 var mem = new Member('太郎', '田中');
+mem.getName = function() {
+  return this.lastName + ' ' + this.firstName;
+};
+
 console.log(mem.getName());
