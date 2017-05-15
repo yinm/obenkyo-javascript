@@ -1,12 +1,10 @@
-var Member = function(firstName, lastName) {
-  this.firstName = firstName;
-  this.lastName  = lastName;
-};
+var Member = function() {};
 
-var mem = new Member('太郎', '田中');
+Member.prototype.sex = '男';
+var mem1 = new Member();
+var mem2 = new Member();
 
-Member.prototype.getName = function() {
-  return this.lastName + ' ' + this.firstName;
-};
+console.log(mem1.sex + '|' + mem2.sex);
 
-console.log(mem.getName());
+mem2.sex = '女';
+console.log(mem1.sex + '|' + mem2.sex);
