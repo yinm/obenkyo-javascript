@@ -1,9 +1,17 @@
-var Member = function() {};
+var Member = function(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName  = lastName;
+};
 
-Member.prototype.sex = '男';
-var mem = new Member();
-mem.sex = undefined;
+Member.prototype = {
+  getName: function() {
+    return this.lastName + ' ' + this.firstName;
+  },
+  toString: function() {
+    return this.lastName + this.firstName;
+  }
+};
 
-for (var key in mem) {
-  console.log(key + ':' + mem[key]);
-}
+var mem1 = new Member('太郎', '田中');
+console.log(mem1.getName());
+console.log(mem1.toString());
