@@ -1,9 +1,19 @@
-var Member = function() {};
+var Animal = function() {};
 
-Member.prototype.sex = '男';
-var mem = new Member();
-mem.sex = undefined;
+Animal.prototype = {
+  walk: function() {
+    console.log('トコトコ...');
+  }
+};
 
-for (var key in mem) {
-  console.log(key + ':' + mem[key]);
-}
+var Dog = function() {
+  Animal.call(this);
+};
+Dog.prototype = new Animal();
+Dog.prototype.bark = function() {
+  console.log('ワンワン！');
+};
+
+var d = new Dog();
+d.walk();
+d.bark();
