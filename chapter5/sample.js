@@ -1,38 +1,17 @@
-function Triangle() {
-  var _base;
-  var _height;
+// ショートカット演算子を使って、
+// 名前空間(e.g. Wings)が未定義の場合だけ、新しい名前空間を作成する
+var Wings = Wings || {};
 
-  Object.defineProperties(this, {
-    base: {
-      get: function() {
-        return _base;
-      },
-      set: function(base) {
-        if (typeof base === 'number' && base > 0) {
-          _base = base;
-        }
-      }
-    },
-    height: {
-      get: function() {
-        return _height;
-      },
-      set: function(height) {
-        if (typeof height === 'number' && height > 0) {
-          _height = height;
-        }
-      }
-    }
-  })
-}
-
-Triangle.prototype.getArea = function() {
-  return this.base * this.height / 2;
+Wings.Member = function(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName  = lastName;
 };
 
-var t = new Triangle();
-t.base = 10;
-t.height = 2;
-console.log('三角形の底辺:' + t.base);
-console.log('三角形の高さ:' + t.height);
-console.log('三角形の面積:' + t.getArea());
+Wings.Member.prototype = {
+  getName: function() {
+    return this.lastName + ' ' + this.firstName;
+  }
+};
+
+var mem = new Wings.Member('太郎', '田中');
+console.log(mem.getName());
