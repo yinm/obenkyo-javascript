@@ -1,17 +1,15 @@
-// ショートカット演算子を使って、
-// 名前空間(e.g. Wings)が未定義の場合だけ、新しい名前空間を作成する
-var Wings = Wings || {};
+function namespace(ns) {
+  var names = ns.split('.');
+  var parent = window;
 
-Wings.Member = function(firstName, lastName) {
-  this.firstName = firstName;
-  this.lastName  = lastName;
-};
-
-Wings.Member.prototype = {
-  getName: function() {
-    return this.lastName + ' ' + this.firstName;
+  for (var i = 0, length = names.length; i < length; i++) {
+    parent[names[i]] = parent[names[i]] || {};
+    parent = parent[names[i]];
   }
-};
+  return parent;
+}
 
-var mem = new Wings.Member('太郎', '田中');
-console.log(mem.getName());
+var my = namespace('Wings.Gihyo.Js.MyApp');
+my.Person = function() {};
+var p = new my.Person();
+console.log(p instanceof Wings.Gihyo.Js.MyApp.Person);
