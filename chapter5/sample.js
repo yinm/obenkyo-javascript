@@ -2,10 +2,8 @@ function Triangle() {
   var _base;
   var _height;
 
-  Object.defineProperty(
-    this,
-    'base',
-    {
+  Object.defineProperties(this, {
+    base: {
       get: function() {
         return _base;
       },
@@ -14,13 +12,8 @@ function Triangle() {
           _base = base;
         }
       }
-    }
-  );
-
-  Object.defineProperty(
-    this,
-    'height',
-    {
+    },
+    height: {
       get: function() {
         return _height;
       },
@@ -30,7 +23,7 @@ function Triangle() {
         }
       }
     }
-  );
+  })
 }
 
 Triangle.prototype.getArea = function() {
