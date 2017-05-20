@@ -10,11 +10,15 @@ class Member {
 }
 
 class BusinessMember extends Member {
-  work() {
-    return this.getName() + 'は働いています。';
+  constructor(firstName, lastName, clazz) {
+    super(firstName, lastName);
+    this.clazz = clazz;
+  }
+
+  getName() {
+    return super.getName() + '/役職:' + this.clazz;
   }
 }
 
-let bm = new BusinessMember('太郎', '田中');
+let bm = new BusinessMember('太郎', '田中', '課長');
 console.log(bm.getName());
-console.log(bm.work());
