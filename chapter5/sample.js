@@ -1,15 +1,13 @@
-function namespace(ns) {
-  var names = ns.split('.');
-  var parent = window;
-
-  for (var i = 0, length = names.length; i < length; i++) {
-    parent[names[i]] = parent[names[i]] || {};
-    parent = parent[names[i]];
+class Member {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName  = lastName;
   }
-  return parent;
+
+  getName() {
+    return this.lastName + this.firstName;
+  }
 }
 
-var my = namespace('Wings.Gihyo.Js.MyApp');
-my.Person = function() {};
-var p = new my.Person();
-console.log(p instanceof Wings.Gihyo.Js.MyApp.Person);
+let m = new Member('太郎', '田中');
+console.log(m.getName());
