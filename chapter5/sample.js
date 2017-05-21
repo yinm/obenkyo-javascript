@@ -1,2 +1,10 @@
-import Area from './lib/Area';
-console.log(Area.getTriangle(10, 5));
+import MyApp from './lib/MyApp'
+
+let app = new MyApp('secret string');
+
+for (let key in app) {
+  console.log(key);
+}
+
+console.log(JSON.stringify(app));
+console.log(app.checkValue('secret string'));
