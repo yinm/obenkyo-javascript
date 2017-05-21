@@ -1,24 +1,9 @@
-class Member {
-  constructor(firstName, lastName) {
-    this.firstName = firstName;
-    this.lastName  = lastName;
+let member = {
+  name: '山田太郎',
+  birth: new Date(1970, 5, 25),
+  toString() {
+    return this.name + '/誕生日:' + this.birth.toLocaleDateString()
   }
+};
 
-  getName() {
-    return this.lastName + this.firstName;
-  }
-}
-
-class BusinessMember extends Member {
-  constructor(firstName, lastName, clazz) {
-    super(firstName, lastName);
-    this.clazz = clazz;
-  }
-
-  getName() {
-    return super.getName() + '/役職:' + this.clazz;
-  }
-}
-
-let bm = new BusinessMember('太郎', '田中', '課長');
-console.log(bm.getName());
+console.log(member.toString());
