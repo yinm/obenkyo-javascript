@@ -1,10 +1,15 @@
-import MyApp from './lib/MyApp'
+let data_array = ['one', 'two', 'three'];
+let data_str = 'あいうえお';
+let data_map = new Map([['MON', '月曜'], ['TUE', '火曜'], ['WED', '水曜']]);
 
-let app = new MyApp('secret string');
-
-for (let key in app) {
-  console.log(key);
+for (let d of data_array) {
+  console.log(d);
 }
 
-console.log(JSON.stringify(app));
-console.log(app.checkValue('secret string'));
+for (let d of data_str) {
+  console.log(d);
+}
+
+for (let [key, value] of data_map) {
+  console.log(`${key}: ${value}`);
+}
