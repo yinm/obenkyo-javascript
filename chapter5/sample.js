@@ -1,9 +1,5 @@
-let member = {
-  name: '山田太郎',
-  birth: new Date(1970, 5, 25),
-  toString() {
-    return this.name + '/誕生日:' + this.birth.toLocaleDateString()
-  }
-};
+let name = '山田太郎';
+let birth = new Date(1970, 5, 25);
+let member = {name, birth};
 
-console.log(member.toString());
+console.log(member);
