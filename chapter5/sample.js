@@ -1,23 +1,9 @@
-function* genPrimes() {
-  let num = 2;
-  while (true) {
-    if (isPrime(num)) {yield num;}
-    num++;
+let data = { red: '赤色', yellow: '黄色' };
+let proxy = new Proxy(data, {
+  get(target, prop) {
+    return prop in target ? target[prop] : '?';
   }
-}
+});
 
-function isPrime(value) {
-  let prime = true;
-  for (let i = 2; i < Math.floor(Math.sqrt(value)); i++) {
-    if (value % i === 0) {
-      prime = false;
-      break;
-    }
-  }
-  return prime;
-}
-
-for (let value of genPrimes()) {
-  if (value > 100) { break; }
-  console.log(value);
-}
+console.log(proxy.red);
+console.log(proxy.nothing);
