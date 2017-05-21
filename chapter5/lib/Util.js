@@ -14,8 +14,8 @@ export class Member {
 export class Area {
   constructor() {}
 
-  static getTriangle(basee, height) {
-    return base + height / 2;
+  static getTriangle(base, height) {
+    return base * height / 2;
   }
 
   static getDiamond(width, height) {

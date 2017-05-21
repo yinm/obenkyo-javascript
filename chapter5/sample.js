@@ -1,4 +1,5 @@
-import * as app from './lib/Util'
+import {Member as MyMember, Area as MyArea} from './lib/Util'
 
-let m = new app.Member('二郎', '山田');
+let m = new MyMember('三郎', '山田');
 console.log(m.getName());
+console.log(MyArea.getTriangle(10, 5));

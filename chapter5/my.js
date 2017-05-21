@@ -36,8 +36,8 @@ var Area = exports.Area = function () {
 
   _createClass(Area, null, [{
     key: 'getTriangle',
-    value: function getTriangle(basee, height) {
-      return base + height / 2;
+    value: function getTriangle(base, height) {
+      return base * height / 2;
     }
   }, {
     key: 'getDiamond',
@@ -54,11 +54,8 @@ var Area = exports.Area = function () {
 
 var _Util = require('./lib/Util');
 
-var app = _interopRequireWildcard(_Util);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-var m = new app.Member('二郎', '山田');
+var m = new _Util.Member('三郎', '山田');
 console.log(m.getName());
+console.log(_Util.Area.getTriangle(10, 5));
 
 },{"./lib/Util":1}]},{},[2,1]);
