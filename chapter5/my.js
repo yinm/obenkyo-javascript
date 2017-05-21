@@ -54,7 +54,11 @@ var Area = exports.Area = function () {
 
 var _Util = require('./lib/Util');
 
-var m = new _Util.Member('太郎', '山田');
+var app = _interopRequireWildcard(_Util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var m = new app.Member('二郎', '山田');
 console.log(m.getName());
 
 },{"./lib/Util":1}]},{},[2,1]);

@@ -1,4 +1,4 @@
-import { Member, Area } from './lib/Util';
+import * as app from './lib/Util'
 
-var m = new Member('太郎', '山田');
+let m = new app.Member('二郎', '山田');
 console.log(m.getName());
