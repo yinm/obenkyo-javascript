@@ -1,11 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-  let timer = window.setTimeout(
-    function() {
-      let dat = new Date();
-      document.getElementById('result').textContent = dat.toLocaleTimeString();
-    }, 5000);
+function hoge() {
+  console.log('あいうえお');
 
-  document.getElementById('btn').addEventListener('click', function() {
-    window.clearTimeout(timer);
-  }, false);
-}, false);
+  setTimeout(function() {
+    console.log('かきくけこ');
+  }, 0);
+
+  console.log('さしすせそ');
+}
+
+hoge();
