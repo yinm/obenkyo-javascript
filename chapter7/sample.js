@@ -1,11 +1,7 @@
-function hoge() {
-  console.log('あいうえお');
+document.addEventListener('DOMContentLoaded', function() {
+  console.log(location.href);
 
-  setTimeout(function() {
-    console.log('かきくけこ');
-  }, 0);
-
-  console.log('さしすせそ');
-}
-
-hoge();
+  document.getElementById('isbn').addEventListener('change', function() {
+    location.href = 'http://www.wings.msn.to/index.php/-/A-03/' + this.value;
+  }, false);
+}, false);
