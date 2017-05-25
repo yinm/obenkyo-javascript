@@ -1,14 +1,14 @@
-window.addEventListener('DOMContentLoaded', function() {
-  let count = 0;
-  let result = document.getElementById('result');
+let agent = window.navigator.userAgent.toLowerCase();
+let version = window.navigator.appVersion.toLowerCase();
 
-  document.getElementById('button').addEventListener('click', function() {
-    result.textContent = ++count;
-    history.pushState(count, null, '/count/' + count);
-  }, false);
+let msie = (agent.indexOf('msie') > -1) && (agent.indexOf('opr') === -1);
+let ie10 = msie && (version.indexOf('msie 10.') > -1);
+console.log('Internet Exploer10: ' + ie10);
 
-  window.addEventListener('popstate', function(e) {
-    count = e.state;
-    result.textContent = count;
-  }, false);
-}, false);
+var chrome =  (agent.indexOf('chrome') > -1)
+           && (agent.indexOf('edge') === -1)
+           && (agent.indexOf('opr')  === -1);
+console.log('Chrome: ' + chrome);
+
+let firefox = (agent.indexOf('firefox') > -1);
+console.log('Firefox: ' + firefox);
