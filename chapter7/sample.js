@@ -1,7 +1,9 @@
 let storage = localStorage;
+let apple = { name: 'りんご', price: 150, made: '青森'};
+storage.setItem('apple', JSON.stringify(apple));
 
-for (let i = 0, length = storage.length; i < length; i++) {
-  let key = storage.key(i);
-  let value = storage[key];
-  console.log(key + ':' + value);
-}
+let data = JSON.parse(storage.getItem('apple'));
+console.log(data);
+console.log(data.name);
+console.log(data.price);
+console.log(data.made);
