@@ -1,7 +1,13 @@
-for (let i = 0; i < 3; i++) {
-  for (let j = 0; j < 3; j++) {
-    console.count('LOOP');
-  }
+function call1() {
+  call2();
 }
 
-console.count('LOOP');
+function call2() {
+  call3();
+}
+
+function call3() {
+  console.trace();
+}
+
+call1();
