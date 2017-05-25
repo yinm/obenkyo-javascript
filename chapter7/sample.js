@@ -1,7 +1,7 @@
-let storage = sessionStorage;
-storage.setItem('fruit1', 'りんご');
-storage.fruit2 = 'みかん';
-storage['fruit3'] = 'ぶどう';
-console.log(storage.getItem('fruit1'));
-console.log(storage.fruit2);
-console.log(storage['fruit3']);
+let storage = localStorage;
+
+for (let i = 0, length = storage.length; i < length; i++) {
+  let key = storage.key(i);
+  let value = storage[key];
+  console.log(key + ':' + value);
+}
