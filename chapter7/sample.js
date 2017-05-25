@@ -1,4 +1,4 @@
-let storage = localStorage;
+let storage = sessionStorage;
 storage.setItem('fruit1', 'りんご');
 storage.fruit2 = 'みかん';
 storage['fruit3'] = 'ぶどう';
