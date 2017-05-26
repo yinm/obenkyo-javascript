@@ -1,22 +1,6 @@
-let MyStorage = function(app) {
-  this.app = app;
-  this.storage = localStorage;
-  this.data = JSON.parse(this.storage[this.app] || '{}');
-};
-
-MyStorage.prototype = {
-  getItem: function(key) {
-    return this.data[key];
-  },
-  setItem: function(key, value) {
-    this.data[key] = value;
-  },
-  save: function() {
-    this.storage[this.app] = JSON.stringify(this.data);
-  }
-};
-
-let storage = new MyStorage('JSSample');
-storage.setItem('hoge', 'ほげ');
-console.log(storage.getItem('hoge'));
-storage.save();
+window.addEventListener('storage', function(e){
+  console.log('変更されたキー:' + e.key);
+  console.log('変更前の値:' + e.oldValue);
+  console.log('変更後の値:' + e.newValue);
+  console.log('発生元のページ:' + e.url);
+}, false);
