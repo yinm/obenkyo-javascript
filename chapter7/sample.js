@@ -1,9 +1,20 @@
-let storage = localStorage;
-let apple = { name: 'りんご', price: 150, made: '青森'};
-storage.setItem('apple', JSON.stringify(apple));
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('btn').addEventListener('click', function() {
+    let worker = new Worker('worker.js');
 
-let data = JSON.parse(storage.getItem('apple'));
-console.log(data);
-console.log(data.name);
-console.log(data.price);
-console.log(data.made);
+    worker.postMessage({
+      'target': document.getElementById('target').value,
+      'x': document.getElementById('x').value
+    });
+    document.getElementById('result').textContent = '計算中・・・';
+
+    worker.addEventListener('message', function(e) {
+      document.getElementById('result').textContent = e.data;
+    }, false);
+
+    worker.addEventListener('error', function(e) {
+      document.getElementById('result').textContent = e.message;
+    }, false);
+
+  }, false);
+}, false);
