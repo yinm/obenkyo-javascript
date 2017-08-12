@@ -1,5 +1,5 @@
 
-document.getElementById('alert').addEventListener('click', function (){
+document.getElementById('alert').addEventListener('click', function () {
   alert('document.getElementByIdのalert');
 });
 
