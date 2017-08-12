@@ -1,4 +1,10 @@
 {
+  "globals": {
+    "alert": false,
+    "document": false,
+    "$": false,
+    "console": false
+  },
   "rules": {
     "no-extra-semi": "warn",
     "no-undef": "warn",
